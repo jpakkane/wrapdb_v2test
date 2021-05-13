@@ -1,0 +1,9 @@
+[wrap-file]
+directory = jpeg-9c
+
+source_url = http://ijg.org/files/jpegsrc.v9c.tar.gz
+source_filename = jpegsrc.v9c.tar.gz
+source_hash = 1e9793e1c6ba66e7e0b6e5fe7fd0f9e935cc697854d5737adec54d93e5b3f730
+
+[provide]
+libjpeg = jpeg_dep
