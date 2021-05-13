@@ -475,21 +475,6 @@
       "0.6.22-1"
     ]
   },
-  "libjpeg": {
-    "dependency_names": [
-      "libjpeg"
-    ],
-    "program_names": [],
-    "versions": [
-      "9c-4",
-      "9c-3",
-      "9c-2",
-      "9c-1",
-      "9a-5",
-      "9a-4",
-      "9a-2"
-    ]
-  },
   "libjpeg-turbo": {
     "dependency_names": [
       "libjpeg"
