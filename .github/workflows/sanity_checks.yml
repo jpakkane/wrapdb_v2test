@@ -1,0 +1,13 @@
+name: Sanity checks
+
+on: [push, pull_request]
+
+jobs:
+  sanity_checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Sanity Checks
+        run: |
+          git fetch --unshallow --tags
+          ./tools/sanity_checks.py
