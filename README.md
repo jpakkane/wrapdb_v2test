@@ -1,4 +1,4 @@
-# Meson Wrap DataBase
+# Meson Wrap Database
 
 This is an experiment at importing all meson ports from wrapdb into a single
 git repository to make contribution as easy as a simple Pull Request.
