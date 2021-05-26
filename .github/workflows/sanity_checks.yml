@@ -7,6 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Install package
+        run: |
+          sudo apt-get -y install build-essential python3-pip ninja-build
+          pip install meson
       - name: Sanity Checks
         run: |
           git fetch --unshallow --tags
