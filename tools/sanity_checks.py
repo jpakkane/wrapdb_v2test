@@ -32,6 +32,14 @@ class TestReleases(unittest.TestCase):
         # Verify keys are sorted
         self.assertEqual(sorted(releases.keys()), list(releases.keys()))
 
+        # Get the list of wraps that has modified packagefiles
+        with open(Path.home() / 'files.json', 'r') as f:
+            changed_files = json.load(f)
+        self.changed_wraps = set()
+        for f in changed_files:
+            if f.startswith('subprojects/packagefiles'):
+                self.changed_wraps.add(f.split('/')[2])
+
         for name, info in releases.items():
             # Make sure we can load wrap file
             config = configparser.ConfigParser()
@@ -47,10 +55,10 @@ class TestReleases(unittest.TestCase):
             if patch_directory:
                 patch_path = Path('subprojects', 'packagefiles', patch_directory)
                 self.assertTrue(patch_path.is_dir())
-                # Those tests are disabled because not all wraps complies atm.
-                #self.assertTrue(Path(patch_path, 'readme.txt').is_file())
-                #self.assertTrue(Path(patch_path, 'LICENSE.build').is_file())
-                #self.check_files(patch_path)
+                # FIXME: Not all wraps currently complies, only check for wraps we modify.
+                if name in self.changed_wraps:
+                    self.assertTrue(Path(patch_path, 'LICENSE.build').is_file())
+                    self.check_files(patch_path)
 
             # Make sure it has the same deps/progs provided
             progs = []
