@@ -10,7 +10,7 @@ build_decoder = get_option('decoder')
 
 cdata = configuration_data()
 check_headers = [
-	  ['HAVE_CTYPE_H', 'ctype.h'],
+      ['HAVE_CTYPE_H', 'ctype.h'],
   ['HAVE_ERRNO_H', 'errno.h'],
   ['HAVE_FCNTL_H', 'fcntl.h'],
   ['HAVE_INTTYPES_H', 'inttypes.h'],
