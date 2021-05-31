@@ -153,9 +153,13 @@ def add_to_db(wrap, versions, releases):
 if __name__ == '__main__':
     token = sys.argv[1]
     releases = {}
-    # openh264 is special because it contains "subprojects/gtest.wrap" that
-    # conflicts with gtest from wrapdb.
+    # - Don't import sqlite, it has been replaced by sqlite3.
+    # - Don't import libjpeg, it has been replaced by libjpeg-turbo.
+    # - openh264 is special because it contains "subprojects/gtest.wrap" that
+    #   conflicts with gtest from wrapdb.
     all_wraps = get_wrap_list()
+    all_wraps.remove('sqlite')
+    all_wraps.remove('libjpeg')
     all_wraps.remove('openh264')
     all_wraps.insert(0, 'openh264')
     for wrap in all_wraps:
